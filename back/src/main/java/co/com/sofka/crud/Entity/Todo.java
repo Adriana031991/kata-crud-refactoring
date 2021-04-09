@@ -1,4 +1,4 @@
-package co.com.sofka.crud;
+package co.com.sofka.crud.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,15 +11,6 @@ public class Todo {
     private Long id;
     private String name;
     private boolean completed;
-    private String groupListId;
-
-    public String getGroupListId() {
-        return groupListId;
-    }
-
-    public void setGroupListId(String groupListId) {
-        this.groupListId = groupListId;
-    }
 
     public Long getId() {
         return id;
