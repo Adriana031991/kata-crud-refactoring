@@ -47,6 +47,7 @@ const Form = () => {
       isCompleted: item.isCompleted
     };
 
+    //el fetch es una forma de poder consultar algo por http o cualquier recurso que se encuentre en la web
 
     fetch(HOST_API + "/todo", {
       method: "PUT",
@@ -62,7 +63,10 @@ const Form = () => {
         formRef.current.reset();
       });
   }
-
+/*
+  formulario con un campo que es el nombre. con el pamarametro onchange que lo que hace es agregar el nombre cuando tenga datos
+  conserva los estados que tenga, y solo va a reemplazar el objeto que tenga (que es el nombre) mediante el evento
+  */
   return <form ref={formRef}>
     <input
       type="text"
@@ -79,6 +83,7 @@ const Form = () => {
 
 
 const List = () => {
+  // este es el contexto: el Store.// que lo que hace es ser un almacen para guardar los estados de la aplicacion
   const { dispatch, state: { todo } } = useContext(Store);
   const currentList = todo.list;
 
@@ -109,6 +114,7 @@ const List = () => {
       id: todo.id,
       completed: event.target.checked
     };
+    //el fetch es una forma de poder consultar algo por http o cualquier recurso que se encuentre en la web
     fetch(HOST_API + "/todo", {
       method: "PUT",
       body: JSON.stringify(request),
@@ -125,6 +131,7 @@ const List = () => {
   const decorationDone = {
     textDecoration: 'line-through'
   };
+  //retorna un listado (templated)
   return <div>
     <table >
       <thead>
@@ -149,7 +156,8 @@ const List = () => {
   </div>
 }
 
-
+//esta es una funcion pura, porque dada una entrada siempre va a recibir una salida de esa entrada. en este caso el state
+//
 
 function reducer(state, action) {
   switch (action.type) {
@@ -188,6 +196,7 @@ function reducer(state, action) {
   }
 }
 
+//provaider: nos sirve para conectar entre si diferentes componentes por ejem. la lista y el item
 const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
