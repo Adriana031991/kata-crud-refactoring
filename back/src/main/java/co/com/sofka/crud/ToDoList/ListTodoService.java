@@ -19,14 +19,9 @@ public class ListTodoService {
     public ResponseDto save(DTOlistTodo dtOlistTodo) {
 
         ListTodo listTodo = new ListTodo();
-        listTodo.setNewId(dtOlistTodo.getNewId());
-        listTodo.setNewName(dtOlistTodo.getNewName());
-
-      /*  ListTodo lista1 = new ListTodo();
-        lista1.setNewName(dtOlistTodo.getNewName());*/
-
+        listTodo.setNewId(dtOlistTodo.getId());
+        listTodo.setNewName(dtOlistTodo.getName());
         listTodo = newRepository.save(listTodo);
-        /*return newRepository.save(lista1);*/
 
         return new ResponseDto(listTodo, "Se ha actualizado correctamente");
     }

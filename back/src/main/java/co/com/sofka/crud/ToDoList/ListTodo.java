@@ -10,12 +10,16 @@ import java.util.Set;
 public class ListTodo {
 
     @Id
+    @GeneratedValue
     private Long newId;
     private String newName;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Todo> listSubTodo;
 
+    public void listSubTodo(Set<Todo> listSubTodo) {
+        this.listSubTodo = listSubTodo;
+    }
 
     public Long getNewId() {
         return newId;
