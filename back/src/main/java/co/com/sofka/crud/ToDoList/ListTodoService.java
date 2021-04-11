@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ListTodoService {
 
-    private ListTodoService listTodoService;
     @Autowired
     private ListTodoRepository newRepository;
 
