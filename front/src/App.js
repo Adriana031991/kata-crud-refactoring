@@ -63,10 +63,12 @@ const Form = () => {
         formRef.current.reset();
       });
   }
-/*
-  formulario con un campo que es el nombre. con el pamarametro onchange que lo que hace es agregar el nombre cuando tenga datos
-  conserva los estados que tenga, y solo va a reemplazar el objeto que tenga (que es el nombre) mediante el evento
-  */
+  /*
+    formulario con un campo que es el nombre. con el pamarametro onchange que lo que hace es agregar el nombre cuando tenga datos
+    conserva los estados que tenga, y solo va a reemplazar el objeto que tenga (que es el nombre) mediante el evento
+    */
+   /* este ya lo pase
+   */
   return <form ref={formRef}>
     <input
       type="text"
@@ -190,7 +192,7 @@ function reducer(state, action) {
     case 'add-item':
       const todoUp = state.todo.list;
       todoUp.push(action.item);
-      return { ...state, todo: {list: todoUp, item: {}} }
+      return { ...state, todo: { list: todoUp, item: {} } }
     default:
       return state;
   }

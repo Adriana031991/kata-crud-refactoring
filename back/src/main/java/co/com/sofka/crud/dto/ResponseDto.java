@@ -1,10 +1,10 @@
-package co.com.sofka.crud.TodoDTO;
+package co.com.sofka.crud.dto;
 
+//@JsonInclude(JsonInclude.Include.NON_NULL) //cuando reotrne los valores, si hay uno null que no lo muestre
 public class ResponseDto {
 
     private Object data;
 
-    private DTOlistTodo dTOlistTodo;
     private String mensaje;
 
     public ResponseDto(Object data, String mensaje) {
