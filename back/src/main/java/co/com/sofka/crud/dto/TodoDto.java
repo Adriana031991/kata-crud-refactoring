@@ -1,5 +1,12 @@
 package co.com.sofka.crud.dto;
 
+/*
+Los DTO son un tipo de objetos que sirven únicamente para transportar datos. EL DTO contiene las propiedades del objeto.
+
+esta clase obtiene los datos para transferir a la tabla to-do
+ */
+
+
 public class TodoDto {
 
     private Integer id;

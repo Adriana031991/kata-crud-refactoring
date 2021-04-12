@@ -6,7 +6,12 @@ import co.com.sofka.crud.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/*
+CRUD de to-dos
+ */
+
 @RestController
+@CrossOrigin( "http://localhost:3000" )
 @RequestMapping("api/todo")
 public class TodoController {
 

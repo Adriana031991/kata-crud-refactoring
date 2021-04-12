@@ -2,7 +2,14 @@ package co.com.sofka.crud.dto;
 
 import java.util.HashSet;
 import java.util.Set;
+/*
+Los DTO son un tipo de objetos que sirven únicamente para transportar datos. EL DTO contiene las propiedades del objeto.
+esta clase obtiene los datos para transferir a la tabla list
 
+defino "private Set<TodoDto> todoList = new HashSet<>();" = La clase HashSet <T> proporciona operaciones de conjuntos
+de alto rendimiento. Un conjunto es una colección que no contiene elementos duplicados y cuyos elementos no están en
+un orden particular. (el mapeo de los datos to-do a la lista)
+ */
 public class ListDto {
 
     private Integer id;

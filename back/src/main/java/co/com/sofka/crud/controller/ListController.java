@@ -6,7 +6,11 @@ import co.com.sofka.crud.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/*
+CRUD de list
+ */
 @RestController
+@CrossOrigin( "http://localhost:3000" )
 @RequestMapping("api/list")
 public class ListController {
 

@@ -9,6 +9,12 @@ import co.com.sofka.crud.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/*
+Este service guarda los datos de los to-dos, llamandolos desde los todoDto (el id, el name y el completed)
+y los guarda en el repositorio.
+define las excepciones en el caso de actualizarse los datos
+*/
+
 @Service
 public class TodoService {
 
@@ -21,7 +27,7 @@ public class TodoService {
 
 
     public ResponseDto saveTodo(TodoDto todoDto){
-        //creacion y actualizacion de tareas
+        //creacion de tareas
 
         Todo todo = new Todo();
         todo.setName(todoDto.getName());
@@ -38,7 +44,7 @@ public class TodoService {
 
 
     public ResponseDto updateTodo(TodoDto todoDto){
-        //actualizacion de tareas
+        //errores en la actualizacion de tareas
         if(todoDto.getId() ==null)
             throw new ValidationException("Debe especificar el todo a actualizar");
 
@@ -51,7 +57,7 @@ public class TodoService {
         if(todoRepository.findById(todoDto.getId()).isEmpty())
             throw new ValidationException("El todo a actualizar no existe");
 
-
+        //actualizacion de tareas
         Todo todo = new Todo();
         todo.setId(todoDto.getId());
         todo.setName(todoDto.getName());
@@ -75,7 +81,6 @@ public class TodoService {
     }
 
     public ResponseDto get(Integer id) {
-
         return new ResponseDto(todoRepository.findById(id).orElseThrow(()->{
             throw new ValidationException("El todo a consultar no existe");
         }));
