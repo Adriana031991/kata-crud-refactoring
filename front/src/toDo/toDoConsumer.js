@@ -1,5 +1,5 @@
 //relacion CRUD EN SI
-const HOST_API = window._env.HOST_API || "http://localhost:8080/api/" 
+const HOST_API = "http://localhost:8080/api/" 
 export default {
     //encuentralos todos, sino los encuentra captura y muestra el error
     findAll: async () => {
