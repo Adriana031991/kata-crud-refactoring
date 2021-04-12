@@ -28,9 +28,9 @@ public class ListController {
     }
 
     @PutMapping()
-    public ResponseDto update(@RequestBody ListDto dtOlistTodo) {
-        if (dtOlistTodo.getId() != null) {
-            return listService.save(dtOlistTodo);
+    public ResponseDto update(@RequestBody ListDto dtOlist) {
+        if (dtOlist.getId() != null) {
+            return listService.save(dtOlist);
         }
         throw new RuntimeException("No existe el id para actualziar");
     }

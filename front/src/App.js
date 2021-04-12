@@ -1,6 +1,6 @@
 import React, { useContext, useReducer, useEffect, useRef, useState, createContext } from 'react';
 
-const HOST_API = "http://localhost:8080/api";
+const HOST_API = "http://localhost:8080/api/";
 const initialState = {
   todo: { list: [], item: {} }
 };
@@ -23,7 +23,7 @@ const Form = () => {
     };
 
 
-    fetch(HOST_API + "/todo", {
+    fetch(HOST_API + "todo", {
       method: "POST",
       body: JSON.stringify(request),
       headers: {
@@ -48,7 +48,7 @@ const Form = () => {
     };
 
 
-    fetch(HOST_API + "/todo", {
+    fetch(HOST_API + "todo", {
       method: "PUT",
       body: JSON.stringify(request),
       headers: {
@@ -83,16 +83,17 @@ const List = () => {
   const currentList = todo.list;
 
   useEffect(() => {
-    fetch(HOST_API + "/todos")
+    fetch(HOST_API + "list")
       .then(response => response.json())
       .then((list) => {
-        dispatch({ type: "update-list", list })
+        dispatch({type:"update-list",list : list.data})
       })
-  }, [dispatch]);
+  }, [dispatch]
+  );
 
 
   const onDelete = (id) => {
-    fetch(HOST_API + "/" + id + "/todo", {
+    fetch(HOST_API + "/" + id + "list", {
       method: "DELETE"
     }).then((list) => {
       dispatch({ type: "delete-item", id })
@@ -109,7 +110,7 @@ const List = () => {
       id: todo.id,
       completed: event.target.checked
     };
-    fetch(HOST_API + "/todo", {
+    fetch(HOST_API + "list", {
       method: "PUT",
       body: JSON.stringify(request),
       headers: {
